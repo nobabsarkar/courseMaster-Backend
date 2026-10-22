@@ -52,6 +52,7 @@ const login = async ({ email, password }) => {
 
 const getMe = async (userId) => {
   const user = await User.findById(userId).select("-passwordHash");
+
   if (!user) throw new Error("User not found");
   return user;
 };

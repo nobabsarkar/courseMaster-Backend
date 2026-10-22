@@ -22,7 +22,8 @@ const login = async (req, res) => {
 
 const me = async (req, res) => {
   try {
-    const user = await authService.getMe(req.user.id);
+    const user = await authService.getMe(req?.user?.id);
+
     res.json(user);
   } catch (err) {
     res.status(404).json({ message: err.message });
@@ -30,4 +31,3 @@ const me = async (req, res) => {
 };
 
 module.exports = { register, login, me };
-
