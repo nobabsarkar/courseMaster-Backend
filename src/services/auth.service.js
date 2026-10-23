@@ -35,6 +35,10 @@ const register = async ({ name, email, password, role, adminKey }) => {
 const login = async ({ email, password }) => {
   const user = await User.findOne({ email });
 
+  console.log("User found:", user);
+
+  console.log("User", user);
+
   if (!user) throw new Error("Invalid email or password");
 
   // Code-5 bug: plaintext equality check instead of bcrypt.compare
